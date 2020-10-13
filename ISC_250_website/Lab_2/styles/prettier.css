@@ -1,0 +1,31 @@
+body{
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: oblique;
+    background-color: #2e82c2;
+}
+        
+h1{
+    color: #441f52;
+	text-align: center;
+    margin: 5px;
+	font-size: 24px;
+	font-family: Open Sans;
+}
+		
+h2{
+    color: #441f52;
+    margin: 25px;
+	font-size: 24px;
+	font-family: Open Sans;		
+}
+        
+p{
+    color: #312d33;
+    margin: 10px;
+}
+        
+li{
+    color: #423e3a;
+    margin: 10px;
+}

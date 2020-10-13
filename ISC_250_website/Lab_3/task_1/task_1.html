@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+     <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Task_1 </title>
+	</head>
+	
+	<link rel="stylesheet" href="../../styles/style.css"></link>
+    
+	<style>
+        h1{
+			text-align: center;
+        }
+		
+		h2 {
+			text-align: center;
+		}	
+	</style>
+	
+    <body>
+		<div class="sidenav">
+			<a href="../../homepage.html">Homepage</a>
+			<a href="../lab_3_index.html">Lab 3 Home</a>
+			<a href="../task_1/task_1.html">Task 1</a>
+			<a href="../task_2/task_2.html" target = "_blank">Task 2</a>
+			<a href="../task_3/task_3.html" target = "_blank">Task 3</a>
+		</div>
+	
+		<div class = "main">
+			<h1> Today's date: </h1>
+			<h2><span id="dtText"></span></h2>
+			<script>
+				var today = new Date();
+				document.getElementById('dtText').innerHTML=today;
+			</script>
+		</div>
+    </body>
+    
+</html> 

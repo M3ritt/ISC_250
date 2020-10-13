@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Task 3 </title>
+	</head>
+	
+    
+    <body>
+	<!-- I personally would have prefered to put the script in a .js file but the assignment stated to edit the html file --->
+		<button onclick="buildPage();">Build Page</button>
+		<script src="../javascript/constitution.js"> </script>
+		<script>
+            function addElement(type, content){
+				elem = document.createElement(type);
+				elem.innerHTML = content;
+				document.body.appendChild(elem);
+			}
+            
+			function buildPage(){
+				for(item of constitution){
+					addElement(item[0], item[1]);
+				}
+			} 
+		</script>
+    </body>
+</html>

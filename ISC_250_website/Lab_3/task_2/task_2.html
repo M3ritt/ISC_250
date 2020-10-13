@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        
+        <style>
+            
+            #content{
+                font-family: arial;
+                width: 40%;
+                margin: auto;
+                padding: 3%;
+                transition: background-color 1.0s, color 1.0s;
+            }
+            
+            #buttons{
+                margin: 5% auto;
+                display: block;
+                height: 100px;
+                width: 40%;
+                background-color: #332244;
+                border-radius: 20px;
+            }
+
+            h1{
+                text-align: center;
+                font-family: Times New Roman;
+            }
+            
+            .imgblock{
+                margin: 0px auto;
+                width: 80%;
+                height: 150px;
+                float: clear;
+            }
+
+            img{
+                margin: 0px auto;
+                transition: 0.5s;
+                width: 33%;
+                float: left;
+            }
+            
+            .day{
+                background-color: #dddddd;
+                color: #000000;
+            }
+            
+            .night{
+                background-color: #002255;
+                color: #ffeedd;
+            }
+            
+            .sunset{
+                background-image: linear-gradient(#FC9C54,#FD5E53);
+                color: #4B3D60;
+            }
+            
+            .sunrise{
+                background-image: linear-gradient(#C8E1F3, #E6E2BC);
+                color: #192B65;
+            }
+
+
+        </style>
+    
+    </head>
+    
+    <body>
+        
+        <div id = "buttons">
+            <h1 style="color:white;">Button Panel</h1>
+			
+           '<button style="margin:17px" onclick = "update_page('day')" >
+				Day time
+			</button>
+			
+			
+            <button style="margin:17px" onclick = "update_page('night')" >
+				Night time
+			</button>       
+
+			
+            <button style="margin:17px" onclick = "update_page('sunset')" >
+				Sunset time
+			</button>
+			
+			
+            <button style="margin:17px"  onclick = "update_page('sunrise')" >
+				Sunrise time
+			</button>			
+        </div>
+        
+        <div id = "content" class = "day">
+            
+            <h1>This is totally about my cat</h1>
+		
+		    <p>
+			    This is a page dedicated to my cat, Lilbit.
+			    She's pretty great.
+		    </p>
+		    
+		    <div class="imgblock">
+		        <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/demos/demo3/lilbit/img/lilbit1.jpg" />
+		        <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/demos/demo3/lilbit/img/lilbit2.jpg" />
+		        <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/demos/demo3/lilbit/img/lilbit3.jpg" />
+		    </div>
+		    
+			</br></br>
+		    <p>
+			    She has the following bugs and features:
+		    </p>
+		    
+		    <ul>
+			    <li>She was found in the middle of winter hiding in the raccoon enclosure in a Hudson Valley wildlife preserve.</li>
+			    <li>Her roommate at the wildlife preserve was a groundhog named Goethe. Goethe was recovering from being hit by a car and could only turn left.</li>
+			    <li>
+				    She's probably the 
+				    <a href="https://en.wikipedia.org/wiki/American_Shorthair" target="_blank">
+					    American Shorthair 
+				    </a>
+				    breed.
+			    </li>
+			    <li>Lilbit is <strong>not</strong> graceful.</li>
+			    <li>Lilbit <i>is</i> pretty strong; she has beefy little arms.</li>
+			    <li>Lilbit is super sweet.</li>
+		    </ul>
+		    
+		    <p>
+			    That's all, I have no more cat facts. 
+		    </p>
+        
+        </div>
+        
+        <script>
+            //a function to take a classname and apply it to the "content" div
+            
+            //your code below!
+            
+            function update_page(time) {
+				document.getElementById("content").className = time;
+			}
+            
+            
+            //your code above!
+            
+        </script>
+        
+    </body>
+    
+</html> 

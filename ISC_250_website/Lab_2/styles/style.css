@@ -1,0 +1,18 @@
+td{
+    width:20px;
+    height:20px;
+}
+
+td, tr{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.red{
+    background-color: red;
+}
+
+.black{
+    background-color: black;
+}

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        
+        <style>
+            body{
+                background-color: #001122;
+                background-image: url("https://66.media.tumblr.com/cbf2b4429af549137a728b2874080f32/b030797130c820df-a1/s400x600/a8bba03534914c24fda61f744d91a030bf06785b.png");
+                background-repeat: repeat;
+            }
+            .space{
+                position: relative;
+                margin: auto;
+                width: 600px;
+                height: 600px;
+                background-color: #ddeeff;
+                background-image: url("https://66.media.tumblr.com/cd0edd63b58a03f7ab29dbca02d6765d/tumblr_nlfvwxPl9K1u289dqo1_500.png");
+                background-repeat: repeat;
+            }
+            .mover{
+                position: absolute;
+                top: 180px;
+                left: 180px;
+                width: 240px;
+                height: 240px;
+                background-color: #445566;
+                background-image: url("https://i.pinimg.com/236x/11/7e/d3/117ed3a30f949a6cacbb576ae93e4c38--uv-tattoo-seamless-textures.jpg");
+                background-repeat: repeat;
+                box-shadow: 5px 5px #11223333;
+            }
+            .controls{
+                background-color: #99aabb;
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                font-weight: bold;
+                font-size: 20pt;
+                opacity: 0.95;
+            }
+            
+        </style>
+    
+    </head>
+    
+    <body>
+        
+        <!--
+            https://www.w3schools.com/charsets/ref_utf_arrows.asp
+            
+            Commonly used arrows have names in html:
+            &larr;  ->  ←
+            &uarr;  ->  ↑
+            &rarr;  ->  →
+            &darr;  ->  ↓
+            
+            Less-used arrows aren't named in html-- just use the unicode instead
+            &#8598; ->  ↖
+            &#8599; ->  ↗
+            &#8600; ->  ↘
+            &#8601; ->  ↙
+            
+        -->
+        
+        <div class="space">
+            <div class="mover">
+				<!-- Cardinal directions -->
+                <button class="controls" style="top: 80px; left:  0px;"   onmousemove="move(this, -10, 0);">
+                    &larr;
+                </button>
+                <button class="controls" style="top:  0px; left: 80px;"   onmousemove="move(this, 0, -10);">
+                    &uarr;
+                </button>
+                <button class="controls" style="top: 80px; left:160px;"   onmousemove="move(this, 10, 0);">
+                    &rarr;
+                </button>
+                <button class="controls" style="top:160px; left: 80px;"   onmousemove="move(this, 0, 10);">
+                    &darr;
+                </button>
+                
+                <!-- Diagonals -->
+                <button class="controls" style="top: 0px; left:  0px;"   onmousemove="move(this, -5, -5);">
+                    &#8598;
+                </button>
+                <button class="controls" style="top:  0px; left: 160px;"   onmousemove="move(this, 5, -5);">
+                    &#8599;
+                </button>
+                <button class="controls" style="top: 160px; left:160px;"   onmousemove="move(this, 5, 5);">
+                    &#8600;
+                </button>
+                <button class="controls" style="top:160px; left: 0px;"   onmousemove="move(this, -5, 5);">
+                    &#8601;
+                </button>
+            </div>
+        </div>
+        
+        
+        <script>
+            //move function
+            // takes the button element that called it, 
+            // a difference value for x (horizontal, alters the "left" value)
+            // a difference value for y (vertical, alters the "top" value)
+            function move(child,dx,dy){
+            
+                //get the button control's parent (the mover box)
+                let parent = child.parentNode;
+                
+                //get the mover box's top and left values
+                let top = parent.offsetTop;
+                let left = parent.offsetLeft;
+                
+                //set the mover box's top and left values to increase by the 
+                // x and y values provided in the function
+                parent.style.top = (top + dy) + "px";
+                parent.style.left = (left + dx) + "px";
+            }
+        
+        </script>
+        
+    </body>
+    

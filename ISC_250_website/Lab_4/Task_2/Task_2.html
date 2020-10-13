@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <style>
+            body{
+                background-color: #001122;
+                background-image: url("https://66.media.tumblr.com/cbf2b4429af549137a728b2874080f32/b030797130c820df-a1/s400x600/a8bba03534914c24fda61f744d91a030bf06785b.png");
+                background-repeat: repeat;
+            }
+            .space{
+                position: relative;
+                margin: auto;
+                width: 600px;
+                height: 600px;
+                background-color: #ddeeff;
+                background-image: url("https://66.media.tumblr.com/cd0edd63b58a03f7ab29dbca02d6765d/tumblr_nlfvwxPl9K1u289dqo1_500.png");
+                background-repeat: repeat;
+            }
+            .mover{
+                position: absolute;
+                top: 180px;
+                left: 180px;
+                width: 240px;
+                height: 240px;
+                background-color: #445566;
+                background-image: url("https://i.pinimg.com/236x/11/7e/d3/117ed3a30f949a6cacbb576ae93e4c38--uv-tattoo-seamless-textures.jpg");
+                background-repeat: repeat;
+                box-shadow: 5px 5px #11223333;
+            }
+            .controls{
+                background-color: #99aabb;
+                position: absolute;
+                width: 80px;
+                height: 80px;
+                font-weight: bold;
+                font-size: 20pt;
+                opacity: 0.95;
+                text-align: center;
+            }
+
+            .controls img{
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                vertical-align: middle;
+                opacity: 0.7;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <!--
+            https://www.w3schools.com/charsets/ref_utf_arrows.asp
+
+            Commonly used arrows have names in html:
+            &larr;  ->  ←
+            &uarr;  ->  ↑
+            &rarr;  ->  →
+            &darr;  ->  ↓
+
+            Less-used arrows aren't named in html-- just use the unicode instead
+            &#8598; ->  ↖
+            &#8599; ->  ↗
+            &#8600; ->  ↘
+            &#8601; ->  ↙
+
+        -->
+
+        <div class="space">
+            <div class="mover" id="platform">
+                <!-- edit these buttons' javascript function calls -->
+
+                <div class="controls" style="top: 80px; left:  0px;">
+                    <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab5/keyboard_key_left.png" />
+                </div>
+                <div class="controls" style="top:  0px; left: 80px;"  >
+                    <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab5/keyboard_key_up.png" />
+                </div>
+                <div class="controls" style="top: 80px; left:160px;"  >
+                    <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab5/keyboard_key_right.png" />
+                </div>
+                <div class="controls" style="top:160px; left: 80px;"  >
+                    <img src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab5/keyboard_key_down.png" />
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+
+            // helper to grab elements quicker
+            function grab(id){
+                return document.getElementById(id);
+            }
+
+            //move function
+            // takes the button element that called it,
+            // a difference value for x (horizontal, alters the "left" value)
+            // a difference value for y (vertical, alters the "top" value)
+            function move(dx,dy){
+
+                let obj = grab("platform");
+
+                //get the mover box's top and left values
+                let top = obj.offsetTop;
+                let left = obj.offsetLeft;
+
+                //set the mover box's top and left values to increase by the
+                // x and y values provided in the function
+                obj.style.top = (top + dy) + "px";
+                obj.style.left = (left + dx) + "px";
+            }
+
+            //function to be called when the event (e) is caught by the browser
+            function key_received(e){
+				//I know I didn't use if-else statements but I felt like switch cases would be more practical - not sure if great to use in js though
+				switch (e.keyCode) {
+					case 37:
+						//37 is left key pressed
+						move(-10, 0)
+						break;
+					case 38:
+						//38 is up key pressed
+						move(0, -10)
+						break;
+					case 39:
+						//39 is right key pressed
+						move(10, 0)
+						break;
+					case 40:
+						//40 is down key pressed
+						move(0, 10)
+						break;
+				}
+            }
+
+            window.addEventListener("keydown", key_received);
+
+
+
+        </script>
+
+    </body>
+
+</html>
