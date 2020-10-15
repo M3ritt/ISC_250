@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <style>
+            #carImg{
+                position: fixed;
+                top: 360px;
+                left: 20px;
+            }
+            #roadImg{
+                position: fixed;
+                z-index: -1;
+                left: 10px;
+                top: 10px;
+            }
+            #feedback{
+                color: red;
+            }
+            input{
+                width: 150px;
+                display: block;
+                margin: 10px auto;
+                
+            }
+            body{
+                margin: auto;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        
+        <input type="button" onclick = "car.drive(23);" value="Drive!"></input>
+        <input type="button" onclick = "car.changeBattery();" value="ChangeBattery"></input>
+        <input type="text" id="feedback" value = ""></input>
+        <img id="carImg" src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab7/car.png" style="width: 100px;" />
+        <img id="roadImg" src="http://cs.oswego.edu/~lindsted/courses/ISC250/labs/lab7/road.jpg" />
+        
+        <!--
+        <select id="selection">
+            <option value="a">A</option>
+            <option value="b">B</option>
+        </select>
+        -->
+
+        <script>
+            
+
+            // helper function to display a piece of text in the 
+            // feedback box on the page
+            function giveFeedback(text){
+                document.getElementById("feedback").value = text;
+            }
+            
+            // definition for the Car object type
+            // takes an Array of Battery objects as an argument
+            function Car(batteries){
+                
+                //store the batteries
+                this.batteries = batteries;
+                
+                //install one of the batteries in the car
+                this.currentBattery = this.batteries.pop();
+                
+                //retrieve a reference to the carImg element so we can move it later
+                this.elem = document.getElementById("carImg");
+                
+                //method to drive a number of miles, 
+                //but only as long as the battery lasts!
+                this.drive = function(miles){
+                    //for each mile to be driven...
+                    for(i=0; i<miles; i++){
+                        //if there's still charge in the battery
+                        if (this.currentBattery.charge > 0){
+                            //update the position of the image
+                            this.elem.style.left = (this.elem.offsetLeft + 1) + "px";
+                            //and deplete the current battery's charge by 1
+                            this.currentBattery.charge -= 1;
+                            giveFeedback(this.currentBattery.charge + "% battery left");
+                        //if we run out of battery charge
+                        } else {
+                            //give feedback that the battery is depleted
+                            giveFeedback("battery depleted");
+                        }
+
+                    }
+                }
+
+
+                //method to change the battery. 
+                //The fix in the code was: pop new battery instead of make new one 
+                this.changeBattery = function(){
+					if(this.batteries.length != 0){ 
+						this.currentBattery = this.batteries.pop();
+                        giveFeedback(this.batteries.length + " batteries remain");
+                    } else {
+                        giveFeedback("we're out of batteries!")
+                    }
+                }
+
+            }
+            
+            //a simple Battery object
+            function Battery(){
+                this.charge = 100;
+            }
+            
+            //defining an array of batteries
+            var batteryPack = [
+                new Battery(),
+                new Battery(),
+                new Battery(),
+                new Battery(),
+                new Battery(),
+                new Battery()
+            ]
+            
+            //creating the car object, with the battery pack
+            var car = new Car(batteryPack);
+
+            
+
+
+
+
+        </script>
+    </body>
+
+</html>
+
+<!--
+dice
+
+object entry and selection
+
+
+
+indexing and for-in
+
+-->

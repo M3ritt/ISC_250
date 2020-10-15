@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Task 3 </title>
+    </head>     
+	
+	 <link rel="stylesheet" href="../../styles/style.css"></link> 
+	 
+	<style>
+        .die{
+            font-weight: bold;
+			font-size: 25pt;
+			float: left;
+			width: 40px;
+			height: 40px;
+			border-style: solid;
+			border-width: 5px; 
+			border-color: black;
+			text-align: center;
+			vertical-align: middle;
+			margin: 5px;
+        }
+		
+		.slot{
+			width: 20px;
+            height: 20px;
+            text-align: center;
+        }
+		
+		body{
+            margin: auto;
+			margin-left: 200px;
+        }
+    </style>
+
+    <body>
+		<div class="sidenav">
+			<a href = "../../homepage.html"> Homepage </a>
+			<a href="../lab_6_index.html">Lab 6 Home</a>
+			<a href="../Task_1/task_1.html">Task 1</a>
+			<a href="../Task_2/task_2.html" target = "_blank">Task 2</a>
+			<a href="task_3.html">Task 3</a>
+		</div>
+		
+        <form>
+            Sides:
+            <input type="text" class="slot" id="s1" value="1"></input>
+            <input type="text" class="slot" id="s2" value="2"></input>
+            <input type="text" class="slot" id="s3" value="3"></input>
+            <input type="text" class="slot" id="s4" value="4"></input>
+            <input type="text" class="slot" id="s5" value="5"></input>
+            <input type="text" class="slot" id="s6" value="6"></input>
+            <input type="button" id="make" onclick="makeDie()" value="New Die"></input>
+            <input type="button" id="make" onclick="rollDice()" value="Roll Dice"></input>
+        </form>
+	
+        
+        <!--
+        <select id="selection">
+            <option value="a">A</option>
+            <option value="b">B</option>
+        </select>
+        -->
+        <script>
+            //defining the Die object
+            function Die(sides){
+                
+                this.sides = sides;
+
+                this.roll = function(){
+                    var side_index = Math.floor(Math.random() * this.sides.length);
+
+                    var result = this.sides[side_index];
+                    this.elem.innerHTML = result;
+
+                    return result;
+                }
+
+                //adding the die to the page during creation
+                this.elem = document.createElement("P");
+                this.elem.innerHTML = "?";
+                this.elem.className = "die";
+                document.body.appendChild(this.elem);
+                
+            }
+            
+            // function to grab data from the page and create the Die objects
+            function makeDie(){
+
+                var s1 = document.getElementById("s1").value;
+                var s2 = document.getElementById("s2").value;
+                var s3 = document.getElementById("s3").value;
+                var s4 = document.getElementById("s4").value;
+                var s5 = document.getElementById("s5").value;
+                var s6 = document.getElementById("s6").value;
+
+                dice.push(new Die([s1,s2,s3,s4,s5,s6]));
+            }
+            
+            //a function to roll all the dice in the "dice" array
+            function rollDice(){
+                for(i = 0; i < dice.length; i++){
+					dice[i].roll();
+				}
+            }
+
+
+
+            //a place to store all dice
+            var dice = []
+     </script>
+    </body>
+</html>
+
+<!--
+dice
+
+object entry and selection
+
+
+
+indexing and for-in
+
+-->
