@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Description </title>
+	</head>
+	
+    <link rel="stylesheet" href="../styles/style.css"></link>
+    
+	<body>
+	
+		<div class="sidenav">
+			<a href="./homepage.html">Home</a>
+			<a href=" ./about_me.html" > About me </a>
+			<a href="about_project.html" > Description</a>
+			<a href=" ./Tetris.html" >Tetris</a>
+		</div>
+        
+        <div class="main">
+			<h3>Description of the project</h3>
+			<br> <br>
+			<a> 
+				This website was created by Josh Meritt who is a senior at SUNY Oswego who is majoring in computer science and minoring in information science.  <br>
+				Being a big fan of Tetris, the goal of this project is to create a replication of the original game of Tetris, 
+				but with color and adding a limit to how many keys can be pressed for each Tetromino. <br><br>
+				
+				
+				The controls of the game: 
+				<center> 
+						<a>'A' - left</a><br>
+						<a> 'D' - right</a><br>
+						<a> 'W' - hard drop</a><br>
+						<a> 'Enter' - rotate</a><br>	
+				</center> <br><br>
+				
+				Process of how the game runs:  <br><br>
+				<ol> 
+					<li> A 10 x 20 board is created along with the different types of Tetrominoes (Pieces).</li>
+					<li> A random piece is then generated to spawn at the top middle of the board and slowly fall.  </li>
+					
+					<ul>  
+						<li> Each Piece can be moved to the right, left, down or rotated.</li>
+						<li> As each piece is moved in any of the previously stated directions, it is undrawn from the previous and then redrawn after the move.  </li>
+					</ul>
+					
+					<li> If the Piece hits a wall or another Piece that has already fallen: That Piece is then locked into place and three scenarios can happen: </li>
+					
+					<ul>
+						<li> The Piece could go past the top row and result in game over. </li>
+						<li> The Piece can fill up a row and the row must be cleared and all above rows must be moved downward. In this case, the score must be changed.  </li>
+						<li> The Piece can be locked into position without clearing a line. </li>
+					</ul>
+					
+					<li> Step 3 is repeated until game over. </li>
+				</ol>
+				For a more in concrete explanation, there are comments on the JavaScript code explanining how the code works. 
+			</a>
+		</div>
+
+    </body>
+</html>
