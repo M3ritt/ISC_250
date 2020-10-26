@@ -66,17 +66,19 @@ const PIECES = [
 */
 function generate_random_piece(){
     let r = Math.floor(Math.random() * PIECES.length)
-    return new Piece( PIECES[r][0],PIECES[r][1]);
+    return new Piece(PIECES[r][0],PIECES[r][1]);
 }
 let p = generate_random_piece();
 
-//Counter of moves so user cannot spam going side to side to stall out
+
+/*	
+	spam_count : Counter of moves so user cannot spam going side to side to stall out
+	is_holding : boolean to check whether a Piece is being held already
+*/
 let spam_count = 0;
-//Counter to check if a Piece is being held
-let is_holding = false;
 
 /*
-	The piece object that is being spawned at the top
+	The piece object that is being spawned at the top. Setting color and shape/rotation
 	
 	Aside:  Piece is an object that will have multiple on a screen at a time so the 'helper methods' are prototypes to accomadate having multiple and calling functions for them
 	
@@ -136,7 +138,7 @@ Piece.prototype.move_down = function(){
         this.undraw();
 		this.y++;
         this.draw();
-    }else{
+    } else {
         this.lock();
         p = generate_random_piece();
     }
@@ -211,7 +213,7 @@ Piece.prototype.rotate = function(){
     if(!this.collision(kick,0,next_pattern)){
         this.undraw();
         this.x += kick;
-        this.new_tetromino = (this.new_tetromino + 1)%this.tetromino.length; // (0+1)%4 => 1
+        this.new_tetromino = (this.new_tetromino + 1)%this.tetromino.length;
         this.active_tetromino = this.tetromino[this.new_tetromino];
         this.draw();
     }
@@ -231,7 +233,7 @@ Piece.prototype.hold_piece = function(){
 	holding_piece = p;
 	p.undraw();
 	if(temp == VACANT){
-		p = genereate_random_piece();
+		p = generate_random_piece();
 	} else {
 		p = temp;
 	}
@@ -257,7 +259,7 @@ let fall_speed = 500;
 Piece.prototype.lock = function(){
     for( r = 0; r < this.active_tetromino.length; r++){
         for(c = 0; c < this.active_tetromino.length; c++){
-            if( !this.active_tetromino[r][c]){
+            if(!this.active_tetromino[r][c]){
                 continue;
             }
             if(this.y + r < 0){
@@ -271,7 +273,7 @@ Piece.prototype.lock = function(){
 	count  = 0;
     for(r = 0; r < ROW; r++){	
         let is_row_full = true;
-        for( c = 0; c < COL; c++){
+        for(c = 0; c < COL; c++){
             is_row_full = is_row_full && (board[r][c] != VACANT);
         }
         if(is_row_full){
@@ -288,12 +290,10 @@ Piece.prototype.lock = function(){
 				score += 800;
 			else 
 				score += 100;
-			var remainder = score % 100;
-			if(remainder = 0)
+			if((score % 1000) == 0)
 				fall_speed = fall_speed - 50;
         }
     }
-	is_holding = false;
 	spam_count = 0;
     draw_board();
     
@@ -363,9 +363,8 @@ function CONTROL(event){
         p.move_down();
 	} else if(event.keyCode == 87){
 		p.hard_drop();
-    } else if (event.keyCode == 32 && is_holding == false){
+    } else if (event.keyCode == 32){
 		p.hold_piece();
-		is_holding = true;
 	} 
 }
 
