@@ -5,3 +5,5 @@ The controls of the game are:
    - 'D' - right 
    - 'W' - hard drop
    - 'Enter' - rotate
+   
+Here is a link to the homepage: http://cs.oswego.edu/~jmeritt/ISC_250/Project_1/pages/homepage.html
