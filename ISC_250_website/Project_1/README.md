@@ -7,4 +7,4 @@ The controls of the game are:
    - 'Enter' - rotate
    - 'Space' - hold
    
-Here is a link to the homepage: http://cs.oswego.edu/~jmeritt/ISC_250/Project_1/pages/homepage.html
+Here is a link to the <a href = "http://cs.oswego.edu/~jmeritt/ISC_250/Project_1/pages/homepage.html" >homepage </a> 
