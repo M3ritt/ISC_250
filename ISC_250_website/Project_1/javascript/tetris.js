@@ -39,14 +39,14 @@ for( r = 0; r <ROW; r++){
 /*
 	This method draws in the square that were just instantiated
 */
-function drawBoard(){
-    for( r = 0; r < ROW; r++){
+function draw_board(){
+    for(r = 0; r < ROW; r++){
         for(c = 0; c < COL; c++){
             draw_square(c,r,board[r][c]);
         }
     }
 }
-drawBoard();
+draw_board();
 
 /*
 	The pieces that are created in tetrominoes.js
@@ -72,6 +72,8 @@ let p = generate_random_piece();
 
 //Counter of moves so user cannot spam going side to side to stall out
 let spam_count = 0;
+//Counter to check if a Piece is being held
+let is_holding = false;
 
 /*
 	The piece object that is being spawned at the top
@@ -215,6 +217,29 @@ Piece.prototype.rotate = function(){
     }
 }
 
+/*
+	Method to hold a piece. No piece is being held at the start so starts off being VACANT. 
+		- current Piece is stored and undrawn from the screen since it is gone. 
+		- Either two options are possible; ehere is not a Piece being held or there is:
+			- holding_piece is VACANT: generate a new Piece 
+			- holding_piece is not VACANT: switch current Piece to what is being held 
+		- Spawn new Piece at top of board
+*/
+let holding_piece = VACANT;
+Piece.prototype.hold_piece = function(){
+	let temp = holding_piece;
+	holding_piece = p;
+	p.undraw();
+	if(temp == VACANT){
+		p = genereate_random_piece();
+	} else {
+		p = temp;
+	}
+	p.x = 3;
+	p.y = -2;
+	draw_board();
+}
+
 //global variables for score and fall speed
 let score = 0;
 let fall_speed = 500;
@@ -268,8 +293,9 @@ Piece.prototype.lock = function(){
 				fall_speed = fall_speed - 50;
         }
     }
+	is_holding = false;
 	spam_count = 0;
-    drawBoard();
+    draw_board();
     
     scoreElement.innerHTML = score;
 }
@@ -318,6 +344,7 @@ Piece.prototype.collision = function(x,y,piece){
 	keyCode 68 : 'D'
 	keyCode 83 : 'S'
 	keyCode 87 : 'W'
+	keyCode 32 : 'Space'
 */
 document.addEventListener("keydown",CONTROL);
 function CONTROL(event){
@@ -336,7 +363,10 @@ function CONTROL(event){
         p.move_down();
 	} else if(event.keyCode == 87){
 		p.hard_drop();
-    }
+    } else if (event.keyCode == 32 && is_holding == false){
+		p.hold_piece();
+		is_holding = true;
+	} 
 }
 
 /*
