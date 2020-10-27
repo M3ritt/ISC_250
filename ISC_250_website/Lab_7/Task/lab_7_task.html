@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 7 task</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+	<div class="sidenav">
+			<a href="../../homepage.html">Home</a>
+			<a href="../lab_7_index.html">Lab 7 Home</a>
+			<a href="lab_7_task.html">Task</a>
+	</div>
+
+
+	<div id="app_basic" v-bind:title="timestamp" class="main">
+		<h3> {{ message }} </h3>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app_basic',
+			data: {
+				message: "Josh's first Vue.js Application",
+				timestamp: `Timestamp ${new Date().toLocaleString()}`,
+			},
+		});
+	</script>
+
+	<div id="for_loop" class="main">
+	<a> Printing an array as a list through a for loop: </a> <br><br>
+		<li v-for="item in loop_data" :key="item.text">
+			{{item.text}}
+		</li>
+		<br><br>
+	</div>
+
+
+	<script>
+		new Vue({
+			el: '#for_loop',
+			data: {
+				loop_data: [
+					{text: 'I can'},
+					{text: 'post everything'},
+					{text: 'in a loop!'}
+				],
+			},
+        });
+	</script>
+
+	<div id="generate_on_click" class="main">
+	<a> Learning how buttons work and calling a method off of a button click: </a> <br> <br>
+		<button v-on:click="randomGenerate">Generate a number 1-100</button>
+		<span>{{ number }}</span>
+		<br><br>
+	</div>
+
+	<script>
+		new Vue({
+			el: '#generate_on_click', 
+			data: {
+				number : ''
+			}, 
+			methods: {
+				randomGenerate : function(event) {
+					return this.number = Math.floor(Math.random() * (100)) + 1;;
+				}
+			}
+		});
+	</script>
+	</body>
+</html>
