@@ -9,6 +9,9 @@
 	</head>
 	
 	<link rel="stylesheet" href="./styles/style.css"></link>
+	<!--- provides drop down arrow -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
 	
 	<body>
 	
@@ -16,15 +19,93 @@
 		<!--- Navigation panel --->
 		<div class="sidenav">
 			<a href="homepage.html">Home</a>
-			<a href="./Lab_1/Josh_version/index.html">Lab 1</a>
-			<a href=" ./Lab_2/lab_2_index.html">Lab 2</a>
-			<a href=" ./Lab_3/lab_3_index.html">Lab 3</a>
-			<a href=" ./Lab_4/lab_4_index.html">Lab 4</a>
-			<a href=" ./Lab_5/lab_5_index.html">Lab 5</a>
-			<a href=" ./Lab_6/lab_6_index.html">Lab 6</a>
-			<a href=" ./Lab_7/lab_7_index.html">Lab 7</a>
-			<!--- This wasn't posted for us to do yet but I found it <a href=" ./Lab_8/lab_8_index.html">Lab 8</a> --->
-			<a href=" ./Project_1/pages/homepage.html">Project</a>
+			<!--- Dropdown for Lab 1 --->
+			<button class="dropdown-btn"> Lab 1
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class="dropdown-container">
+				<a href="./Lab_1/Josh_version/index.html">Lab 1 Homepage</a>
+				<a href="./Lab_1/Josh_version/Task1.html">Lab 1 Task 1</a>
+				<a href="./Lab_1/Josh_version/Task2.html">Lab 1 Task 2</a>
+				<a href="./Lab_1/Josh_version/Task3.html" target = "_blank">Lab 1 Task 3</a>
+			</div>
+			<!--- Dropdown for Lab 2 --->
+			<button class="dropdown-btn"> Lab 2
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">	
+				<a href=" ./Lab_2/lab_2_index.html">Lab 2 Homepage</a>
+				<a href="./Lab_2/Task_1/index.html" target = "_blank">Lab 2 Task 1</a>
+				<a href="./Lab_2/Task_2/unappealing_homepage.html" target = "_blank">Lab 2 Task 2</a>
+				<a href="./Lab_2/Task_3/review_page.html" target = "_blank">Lab 2 Task 3</a>
+			</div>	
+			<!--- Dropdown for Lab 3 --->
+			<button class="dropdown-btn"> Lab 3
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">
+				<a href=" ./Lab_3/lab_3_index.html">Lab 3 Homepage</a>
+				<a href="./Lab_3/task_1/task_1.html">Lab 3 Task 1</a>
+				<a href="./Lab_3/task_2/task_2.html" target = "_blank">Lab 3 Task 2</a>
+				<a href="./Lab_3/task_3/task_3.html" target = "_blank">Lab 3 Task 3</a>
+			</div>
+			<!--- Dropdown for Lab 4 --->
+			<button class="dropdown-btn"> Lab 4
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">
+				<a href=" ./Lab_4/lab_4_index.html">Lab 4 Homepage</a>
+				<a href="./Lab_4/Task_1/task_1.html" target = "_blank">Lab 4 Task 1</a>
+				<a href="./Lab_4/Task_2/task_2.html" target = "_blank">Lab 4 Task 2</a>
+				<a href="./Lab_4/Task_3/task_3.html" target = "_blank">Lab 4 Task 3</a>
+			</div>
+			<!--- Dropdown for Lab 5 --->
+			<button class="dropdown-btn"> Lab 5
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">
+				<a href=" ./Lab_5/lab_5_index.html">Lab 5 Homepage</a>
+				<a href="./Lab_5/Task_1/task_1.html">Lab 5 Task 1</a>
+				<a href="./Lab_5/Task_2/task_2.html" target = "_blank">Lab 5 Task 2</a>
+				<a href="./Lab_5/Task_3/task_3.html" target = "_blank">Lab 5 Task 3</a>
+				</div>
+			<!--- Dropdown for Lab 6 --->
+			<button class="dropdown-btn"> Lab 6 </a>
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">
+				<a href=" ./Lab_6/lab_6_index.html">Lab 6 Homepage</a>
+				<a href="./Lab_6/Task_1/task_1.html">Lab 6 Task 1</a>
+				<a href="./Lab_6/Task_2/task_2.html" target = "_blank">Lab 6 Task 2</a>
+				<a href="./Lab_6/Task_3/task_3.html">Lab 6 Task 3</a>
+			</div>
+			<!--- Dropdown for Lab 7 --->
+			<button class="dropdown-btn"> Lab 7 </a>
+				<i class="fa fa-caret-down"></i> 
+			</button>	
+			<div class = "dropdown-container">
+				<a href=" ./Lab_7/lab_7_index.html">Lab 7 Homepage</a>
+				<a href="./Lab_7/Task/lab_7_task.html">Lab 7 Task</a>
+			</div>
+			<!--- Dropdown for Lab 8 --->
+			<!--- 
+			<button class = "dropdown-btn"> Lab 8 </a>
+				<i class = "fa fa-caret-down"</i>
+			</button>
+			<div class = "dropdown-container">
+				<a href=" ./Lab_8/lab_8_index.html">Lab 8 Homepage</a> 
+				<a href=" ./Lab_8/lab_8_task.html">Lab 8 Task</a> 
+			--->
+			<!-- Dropdown for Project --->
+			<button class="dropdown-btn"> Project </a>
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class = "dropdown-container">
+				<a href="./Project_1/pages/homepage.html">Project Home</a>
+				<a href=" ./Project_1/pages/about_me.html" > About me </a>
+				<a href="./Project_1/pages/about_project.html" >Project Description</a>
+				<a href=" ./Project_1/pages/Tetris.html" >Tetris</a>
+			</div>
 		</div>
 
 		<!--- Main class --->
@@ -53,6 +134,9 @@
 				</ul>
 			</a>
 		</div>
+		
+		<!--- Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict -->
+        <script src="./javascript/navigation_bar_loop.js"> </script>
    
 	</body>
 </html> 
