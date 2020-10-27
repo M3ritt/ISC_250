@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Test</title>
+
+    <!-- This is a development version of Vue.js! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <!-- import stylesheet -->
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Basic usage -->
+
+<div id="app_basic" v-bind:title="timestamp" class="experiment-block">
+    {{ message }}
+</div>
+
+<script>
+    new Vue(
+        {
+            el: '#app_basic',
+            data: {
+                message: '🐵 Hello World 🔮',
+                timestamp: `Timestamp ${new Date().toLocaleString()}`,
+            },
+        });
+</script>
+
+<!-- Your Code Here. Task 1 -->
+<div id="app_loops" class="experiment-block">
+    <li v-for="item in todos" :key="item.text">
+		{{item.text}}
+	</li>
+</div>
+
+
+<script>
+    new Vue(
+        {
+            el: '#app_loops',
+            data: {
+                todos: [{
+                    text: 'Learn JavaScript',
+					},
+                    {
+                        text: 'Learn Vue',
+                    },
+                    {
+                        text: 'Build something awesome',
+                    },
+                ],
+            },
+        });
+</script>
+
+<!-- OnClick -->
+
+<div id="app_onclick" class="experiment-block">
+    <button v-on:click="randomGenerate">Click me</button>
+	<span>{{ message }}</span>
+</div>
+
+
+<script>
+    <!-- Your Code Here. Task 2 -->
+	new Vue(
+		{
+			el: '#app_onclick', 
+			data: {
+				message : ''
+			}, 
+			methods: {
+				randomGenerate : function(event) {
+					return this.message = Math.floor(Math.random() * (1000000000000000000000)) + 1;;
+				}
+			}
+		}
+	);
+</script>
+
+
+<!-- Data binding -->
+
+<!-- Your Code Here. Task 3 -->
+<div id = "app_model" class = "main">
+	<input v-model="value" class = "main"> 
+	<a> Message is: {{value}} </a>
+</div>
+
+<script>
+    new Vue(
+        {
+            el: '#app_model',
+            data: {
+                value: "Some string data",
+            },
+        });
+</script>
+
+</body>
+
+</html>
