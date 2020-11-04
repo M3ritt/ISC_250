@@ -65,7 +65,8 @@
 <!-- OnClick -->
 
 <div id="app_onclick" class="experiment-block">
-    <button v-on:click="randomGenerate">Click me</button>
+    <span>Click me (random number generate) <br></span> 
+	<button v-on:click="randomGenerate">Click me</button>
 	<span>{{ message }}</span>
 </div>
 
@@ -80,7 +81,7 @@
 			}, 
 			methods: {
 				randomGenerate : function(event) {
-					return this.message = Math.floor(Math.random() * (1000000000000000000000)) + 1;;
+					return this.message = Math.floor(Math.random() * (10000000000000000)) + 1;;
 				}
 			}
 		}
@@ -91,9 +92,9 @@
 <!-- Data binding -->
 
 <!-- Your Code Here. Task 3 -->
-<div id = "app_model" class = "main">
+<div id = "app_model" class = "experiment-block">
 	<input v-model="value" class = "main"> 
-	<a> Message is: {{value}} </a>
+	<a> <br>Message is: {{value}} </a>
 </div>
 
 <script>
