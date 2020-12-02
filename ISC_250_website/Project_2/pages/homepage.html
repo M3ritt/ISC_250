@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Homepage </title>
+	</head>
+	
+    <link rel="stylesheet" href="../styles/style.css"></link>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+	<body>
+		<div class="sidenav">
+			<a href="homepage.html">Home</a>
+			
+			<button class="dropdown-btn"> About me
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class="dropdown-container">
+				<a href="./about_me.html">About me</a>
+				<a href="./about_me.html#prominent_work">Prominent work</a>
+				<a href="./about_me.html#classes">Past classes</a>
+				<a href="./about_me.html#languages">Known languages</a>
+			</div>
+			
+			<a href="./about_project.html" > Description</a>
+			<a href=" ./Tetris.html" >Tetris</a>
+		</div>
+		
+		<div id="get_time" v-bind:title="timestamp" class="main">
+		<h3> {{ message }} </h3>
+			<p> {{ timestamp }} </p>
+		</div>
+       
+        <div id="app_loops" class="main">
+			<a> This was made for assisstant professor <a href = "https://www.oswego.edu/computer-science/content/tamaike-brown" target="_blank"> Tamaike Brown</a>.
+			<br> <br>
+			<a>	
+				
+				Welcome to the homepage for Project 2! <br>
+				This is an updated version of <a href="../../Project_1/pages/homepage.html" target="_blank">Project 1</a> that implements aspects of vuejs as well as JavaScript on every page!
+				<br> <br>
+				The list of different pages: 
+				<ul>
+					<li> <a href="homepage.html">Home</a> : The main homepage.</li>
+					<li> <a href=" ./about_me.html">About me</a> : A page about my academics.</li>
+					<li> <a href=" ./about_project.html">Description</a> :  A page describing the project.</li>
+					<li> <a href=" ./Tetris.html">Tetris</a> : The working project.</li>
+				</ul>
+				
+				<!-- 
+				<li v-for="item in todos" :key="item.text">
+					<div v-html=item.text id="app_loops">
+				</li>
+				-->
+				<br>
+				Additionally, here is the link to view the labs completed for this course: <a href = "../../homepage.html"> ISC 250 homepage</a>.
+			</a>
+		</div>
+		<script src="../javascript/navigation_bar_loop.js"> </script>
+		<script src="../javascript/vue/homepage.js"></script>
+    </body>
+</html>

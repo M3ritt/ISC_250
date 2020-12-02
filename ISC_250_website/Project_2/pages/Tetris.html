@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Tetris</title>
+	</head>
+
+	<link rel="stylesheet" href="../styles/style.css"></link>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+	<body>
+		<div class="sidenav">
+			<a href="homepage.html">Home</a>
+			
+			<button class="dropdown-btn"> About me
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class="dropdown-container">
+				<a href="./about_me.html">About me</a>
+				<a href="./about_me.html#prominent_work">Prominent work</a>
+				<a href="./about_me.html#classes">Past classes</a>
+				<a href="./about_me.html#languages">Known languages</a>
+			</div>
+			
+			<a href="./about_project.html" > Description</a>
+			<a href=" ./Tetris.html" >Tetris</a>
+		</div>
+	
+	<div id = "controls" class = "game">
+		<i> Controls:</i><br>
+		<div v-for="(value, name) in object">
+			{{ name }}: {{ value }}
+		</div>
+	</div>
+	   
+    <canvas id="tetris" width="200" height="400"></canvas>
+	
+	<div class = "game">
+        Score : <div id="score">0
+	</div>
+    
+    <script src="../javascript/tetrominoes.js"></script>
+    <script src="../javascript/tetris.js"></script>
+	<script src="../javascript/navigation_bar_loop.js"> </script>
+	<!--- The controls are the same so no reason to create new file for same exact list --->
+	<script src="../javascript/vue/about_project.js"> </script>
+</body>
+</html>

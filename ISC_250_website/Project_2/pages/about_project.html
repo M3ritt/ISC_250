@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> Description </title>
+	</head>
+	
+    <link rel="stylesheet" href="../styles/style.css"></link>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+	<body>
+	
+		<div class="sidenav">
+			<a href="./homepage.html">Home</a>
+			
+			<button class="dropdown-btn"> About me
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class="dropdown-container">
+				<a href="./about_me.html">About me</a>
+				<a href="./about_me.html#prominent_work">Prominent work</a>
+				<a href="./about_me.html#classes">Past classes</a>
+				<a href="./about_me.html#languages">Known languages</a>
+			</div>
+			
+			<a href="about_project.html" > Description</a>
+			<a href=" ./Tetris.html" >Tetris</a>
+		</div>
+        
+        <div class="main">
+			<h3>Description of the project</h3>
+			<br> <br>
+			<a> 
+				This website was created by Josh Meritt who is a senior at SUNY Oswego who is majoring in computer science and minoring in information science.
+				Being a big fan of Tetris, the goal of this project is to create a replication of the original game of Tetris, but with a few changes for ease of the project. <br><br>
+		
+			<div id="controls" class="controls">		
+				The controls of the game: <br><br>
+				<div v-for="(value, name) in object">
+					{{ name }}: {{ value }}
+				</div>
+				<br><br>
+			</div> 
+			</a>
+		</div>
+		
+		<div id="game_process" class="main">
+			Process of how the game runs:  <br><br>
+			<!--- 
+				I kept this as HTML and not vue like the other lists because having a list within a list with numbers as first list was causing to be difficult with current vue knowledge.
+				That being said, changed the id to be seperate from others in case it was desired to change it. 
+			
+			<div v-for="(value, name, index) in object">
+				<div v-if="index == 2">
+					{{ index }}: {{ value }} <br>
+					
+					<div id ="random_spawn" class = "main">
+						<li v-for="item in loop_data" :key="item.data">
+							{{ item.text }}
+						</li>
+					</div>
+				</div>
+				<div v-else>
+					{{ index }}: {{ value }}
+				</div>
+			</div>
+			--->
+			<ol> 
+				<li> A 10 x 20 board is created along with the different types of Tetrominoes (Pieces).</li>
+				<li> A random piece is then generated to spawn at the top middle of the board and slowly fall.  </li>
+					
+				<ul>  
+					<li> Each Piece can be moved to the right, left, down or rotated.</li>
+					<li> As each piece is moved in any of the previously stated directions, it is undrawn from the previous and then redrawn after the move.  </li>
+				</ul>
+					
+				<li> If the Piece hits a wall or another Piece that has already fallen: That Piece is then locked into place and three scenarios can happen: </li>
+					
+				<ul>
+					<li> The Piece could go past the top row and result in game over. </li>
+					<li> The Piece can fill up a row and the row must be cleared and all above rows must be moved downward. In this case, the score must be changed.  </li>
+					<li> The Piece can be locked into position without clearing a line. </li>
+				</ul>
+					
+				<li> Step 3 is repeated until game over. </li>
+			</ol>
+			For a more in concrete explanation, there are comments on the JavaScript code explanining how the code works. 
+			</a>
+		</div>
+		
+		<div id="improvements" class="main">
+			<br> <br>
+			<h3> What could be improved</h3> 
+			<br> <br>
+			<a> 
+				While the game currently runs fine, some improvements could be made to increase the quality of the game such as: <br><br>
+			
+				<li v-for="item in loop_data" :key="item.text">
+					{{item.text}}
+				</li>
+			<br>
+				Since I created a working application and was running low on time, I thought to keep what I have and make updates later if desired. <br>
+				The code for this project can be found on <a href = "https://github.com/M3ritt/ISC_250/tree/master/ISC_250_website/Project_1" target="_blank"> GitHub</a>.
+			</a>
+			<br> <br> <br>
+		</div>
+	
+	<script src="../javascript/navigation_bar_loop.js"> </script>
+	<script src="../javascript/vue/about_project.js"> </script>
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title> About me </title>
+	</head>
+	
+    <link rel="stylesheet" href="../styles/style.css"></link>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	
+	<body>
+		<div class="sidenav">
+			<a href="./homepage.html">Home</a>
+			
+			<button class="dropdown-btn"> About me
+				<i class="fa fa-caret-down"></i> 
+			</button>
+			<div class="dropdown-container">
+				<a href="about_me.html">About me</a>
+				<a href="about_me.html#prominent_work">Prominent work</a>
+				<a href="about_me.html#classes">Past classes</a>
+				<a href="about_me.html#languages">Known languages</a>
+			</div>
+			
+			<a href="./about_project.html" > Description</a>
+			<a href=" ./Tetris.html" >Tetris</a>			
+		</div>
+	
+		<div id="prominent_work" class="main">
+			<h3> About me </h3>
+
+			<h4> Who is Josh? </h4>
+			<a>
+				Josh is currently a senior at SUNY Oswego going for a major in Computer Science with a minor in Information Science. Throughout his time at SUNY Oswego, he has had the experience
+				of working with FindingFive on a Quality Assurance team for a product that was made for his CSC 480 class as well as able to have a position as a Web developer for Campus Recreation. 
+				<br> <br> 
+			</a>
+			
+			<h4> Some past work: </h4>
+
+			</a>
+				The most common languages used for Josh varied throughout the years, Java was the most common throughout the beginning years in Oswego but began using Python, HTML and JavaScript 
+				as the most prominent his junior and senior year. Some of projects created using some of the languages learned include:  <br><br>
+				
+				<li v-for="item in loop_data" :key="item.text">
+					{{item.text}}
+				</li>
+			</a><br><br>
+		</div>
+			
+		<div id="classes" class="main">
+			<h4> Past classes: </h4>
+			
+			<li v-for="item in loop_data" :key="item.text">
+				{{item.text}}
+			</li>
+		
+			<br> <br>
+		</div>
+		
+		<div id="languages" class="main">
+			<h4> Known languages: </h4>
+			
+			<li v-for="item in loop_data" :key="item.text">
+				{{item.text}}
+			</li>
+			
+			 <br> <br>
+			 
+			<h4> Contact and links: </h4> 
+			<a>
+				Some of Josh's code can be found at: <a href = "https://github.com/M3ritt" target = "_blank"> GitHub </a> . <br>
+				If any questions, he can be contacted at:  <a href = "mailto: jmeritt@oswego.edu" target="_blank"> jmeritt@oswego.edu </a> <br>
+				<br> <br> <br> 
+			</a>
+		</div>
+		
+		<script src="../javascript/vue/about_me.js"></script>
+		<script src="../javascript/navigation_bar_loop.js"> </script>
+	</body>
+</html> 
